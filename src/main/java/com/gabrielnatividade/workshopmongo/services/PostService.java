@@ -1,0 +1,32 @@
+package com.gabrielnatividade.workshopmongo.services;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gabrielnatividade.workshopmongo.domain.Post;
+
+import com.gabrielnatividade.workshopmongo.repository.PostRepository;
+
+import com.gabrielnatividade.workshopmongo.services.exception.ObjectNotFoundException;
+
+@Service
+public class PostService {
+
+	@Autowired // ele instancia automaticamente pra vc
+	private PostRepository repo;
+
+
+	public Post findById(String id) {
+		return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+	}
+
+
+
+	
+
+	
+
+
+}
